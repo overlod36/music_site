@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block title %} Добавление альбома {% endblock %}
+
+{% block content %}
+
+	<div class="alb_form">
+		<h3>Добавление альбома</h3>
+		<form method="POST">
+			{{ form.title_field }}
+			{{ form.date_field }}
+			{{ form.producers_field }}
+			{{ form.duration_field }}
+			{{ form.submit }}
+		</form>		
+	</div>
+
+{% endblock %}
