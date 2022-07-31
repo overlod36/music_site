@@ -1,0 +1,36 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %} 
+{{ super() }}
+	<link rel="icon" href="../static/img/c.png">
+	<style>
+		.navbar-red{
+			background: #5f99f5;
+		}
+		.navbar-txt{
+			color: #8cc4f5;
+		}
+	</style>
+{% endblock %}
+
+{% block navbar %}
+	<div class="navbar navbar-red">
+		<div class="container-fluid">
+			<div class="navbar-header">
+		      <a class="navbar-brand navbar-txt" href="/">Пылесборник</a>
+		    </div>
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a class="dropdown-toggle navbar-txt" data-toggle="dropdown" href="#">Главная страница <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+			          <li><a href="/add_album">Меню добавления</a></li>
+			          <li><a href="#">Редактор группы</a></li>
+			          <li><a href="#">Редактор альбома</a></li>
+			        </ul>
+				</li>
+				<li><a class="navbar-txt" href="/groups">Исполнители</a></li>
+				<li><a class="navbar-txt" href="/albums">Альбомы</a></li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}
