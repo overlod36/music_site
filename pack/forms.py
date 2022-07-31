@@ -9,3 +9,4 @@ class Album_Form(FlaskForm):
 	producers_field = StringField('Продюссер альбома', validators=[InputRequired(), Length(min=5, max=30)])
 	duration_field = TimeField('Длительность альбома')
 	submit = SubmitField('Добавить')
+
