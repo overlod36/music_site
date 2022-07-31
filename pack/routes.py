@@ -16,5 +16,6 @@ def main():
 def add_alb():
 	form = forms.Album_Form()
 	if request.method == 'POST':
+		print(form.duration_field.data)
 		return redirect(url_for('main'))
 	return render_template('add_alb_page.html', form=form)
