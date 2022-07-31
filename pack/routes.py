@@ -4,6 +4,8 @@ from flask import url_for
 from flask import redirect
 from flask_bootstrap import Bootstrap
 
+Bootstrap(app)
+
 @app.route('/')
 def main():
-	return 'Hello!'
+	return render_template('home.html')
