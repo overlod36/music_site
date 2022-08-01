@@ -9,5 +9,6 @@ class Album_Form(FlaskForm):
 	date_field = DateField('Дата релиза', validators=[InputRequired()])
 	producers_field = StringField('Продюссер альбома', validators=[InputRequired(), Length(min=5, max=30)])
 	duration_field = DateTimeField('Длительность альбома', validators=[InputRequired()], format='%H:%M:%S')
+	songs_field = StringField('Песни альбома', validators=[InputRequired(), Length(min=10, max=450)])
 	submit = SubmitField('Добавить')
 
