@@ -6,13 +6,22 @@
 	{{ super() }}
 	<style>
 		.album{
+			display: grid;
 			margin: 15px;
+			grid-template-columns: 1fr 1fr;
 		}
 		.field{
 			margin: 10px;
 		}
 		.field b{
 			margin-right: 10px;
+		}
+		.cover_img{
+			height: 400px;
+			weight: auto;
+		}
+		.cover{
+
 		}
 	</style>
 
@@ -21,43 +30,44 @@
 
 {% block content %} 
 	<div class='album'>
-		<div class="field">
-			<b>Название</b>
-			{{ album.title }}
-		</div>
+		<div class="info">
+			<div class="field">
+				<b>Название</b>
+				{{ album.title }}
+			</div>
 
-		<div class="field">
-			<b>Группа</b>
-			{{ album.group_name }}
-		</div>
+			<div class="field">
+				<b>Группа</b>
+				{{ album.group_name }}
+			</div>
 
-		<div class="field">
-			<b>Дата релиза</b>
-			{{ album.release_date }}
-		</div>
+			<div class="field">
+				<b>Дата релиза</b>
+				{{ album.release_date }}
+			</div>
 
-		<div class="field">
-			<b>Продюссер</b>
-			{{ album.producers_name }}
-		</div>
+			<div class="field">
+				<b>Продюссер</b>
+				{{ album.producers_name }}
+			</div>
 
-		<div class="field">
-			<b>Продолжительность альбома</b>
-			{{ album.duration }}
-		</div>
+			<div class="field">
+				<b>Продолжительность альбома</b>
+				{{ album.duration }}
+			</div>
 
-		<div class="field">
-			<b>Треклист</b>
-			<br>
-			{% for song in album.songs %}
-				{{ song }} <br>
-			{% endfor %}
+			<div class="field">
+				<b>Треклист</b>
+				<br>
+				{% for song in album.songs %}
+					{{ song }} <br>
+				{% endfor %}
+			</div>
 		</div>
-
+		
 		<div class="cover">
-			<img src="static/{{ album.cover_path }}">
+			<img class="cover_img" src="static/albums/{{ album.cover_path }}">
 		</div>
-
 	</div>
 
 {% endblock %}
