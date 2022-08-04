@@ -6,7 +6,12 @@
 	{{ super() }}
 	<style>
 		.groups{
-
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		img{
+			width: 400px;
+			height: auto;
 		}
 	</style>
 
@@ -17,10 +22,10 @@
 	<div class='groups'>
 		{% for group in groups %}
 		<div class='group'>
-			
 			<div class="cover">
 				<img class="cover_img" src="static/groups/{{ group.cover_path }}">
 			</div>
+			{{ group.name }}
 		</div>
 		{% endfor %}
 	</div>
