@@ -10,6 +10,9 @@
 		.navbar-txt{
 			color: #8cc4f5;
 		}
+		body{
+			background: #d9e6fa;
+		}
 	</style>
 {% endblock %}
 
@@ -21,11 +24,10 @@
 		    </div>
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
-					<a class="dropdown-toggle navbar-txt" data-toggle="dropdown" href="#">Главная страница <span class="caret"></span></a>
+					<a class="dropdown-toggle navbar-txt" data-toggle="dropdown" href="#"> Меню добавления <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-			          <li><a href="/add_album">Меню добавления</a></li>
-			          <li><a href="#">Редактор группы</a></li>
-			          <li><a href="#">Редактор альбома</a></li>
+			          <li><a href="/add_album">Добавить альбом</a></li>
+			          <li><a href="/add_group">Добавить группу</a></li>
 			        </ul>
 				</li>
 				<li><a class="navbar-txt" href="/groups">Исполнители</a></li>
