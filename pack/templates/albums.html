@@ -5,10 +5,14 @@
 
 	{{ super() }}
 	<style>
+		.albums{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
 		.album{
 			display: grid;
 			margin: 15px;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 0.24fr 0.5fr;
 		}
 		.field{
 			margin: 10px;
@@ -17,7 +21,7 @@
 			margin-right: 10px;
 		}
 		.cover_img{
-			height: 400px;
+			height: 360px;
 			weight: auto;
 		}
 		.cover{
@@ -28,46 +32,50 @@
 {% endblock %}
 
 
-{% block content %} 
-	<div class='album'>
-		<div class="info">
-			<div class="field">
-				<b>Название</b>
-				{{ album.title }}
-			</div>
+{% block content %}
+	<div class='albums'>
+		{% for album in albums %}
+		<div class='album'>
+			<div class="info">
+				<div class="field">
+					<b>Название:</b>
+					{{ album.title }}
+				</div>
 
-			<div class="field">
-				<b>Группа</b>
-				{{ album.group_name }}
-			</div>
+				<div class="field">
+					<b>Группа:</b>
+					{{ album.group_name }}
+				</div>
 
-			<div class="field">
-				<b>Дата релиза</b>
-				{{ album.release_date }}
-			</div>
+				<div class="field">
+					<b>Дата релиза:</b>
+					{{ album.release_date }}
+				</div>
 
-			<div class="field">
-				<b>Продюссер</b>
-				{{ album.producers_name }}
-			</div>
+				<div class="field">
+					<b>Продюссер:</b>
+					{{ album.producers_name }}
+				</div>
 
-			<div class="field">
-				<b>Продолжительность альбома</b>
-				{{ album.duration }}
-			</div>
+				<div class="field">
+					<b>Продолжительность альбома:</b>
+					{{ album.duration }}
+				</div>
 
-			<div class="field">
-				<b>Треклист</b>
-				<br>
-				{% for song in album.songs %}
-					{{ song }} <br>
-				{% endfor %}
+				<div class="field">
+					<b>Треклист</b>
+					<br>
+					{% for song in album.songs %}
+						{{ song }} <br>
+					{% endfor %}
+				</div>
+			</div>
+			
+			<div class="cover">
+				<img class="cover_img" src="static/albums/{{ album.cover_path }}">
 			</div>
 		</div>
-		
-		<div class="cover">
-			<img class="cover_img" src="static/albums/{{ album.cover_path }}">
-		</div>
+		{% endfor %}
 	</div>
 
 {% endblock %}

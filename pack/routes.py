@@ -27,7 +27,7 @@ def add_alb():
 	if request.method == 'POST':
 		file = request.files['cover_field']
 		filename = secure_filename(file.filename)
-		file.save(os.path.join('pack/static', filename))
+		file.save(os.path.join('pack/static/albums', filename))
 		new_album = models.Album(title=form.title_field.data, group_name=form.group_field.data, release_date=form.date_field.data, producers_name=form.producers_field.data, duration=get_time(str(form.duration_field.data)[11:]), songs=get_songs(form.songs_field.data), cover_path=filename)
 		db.session.add(new_album)
 		db.session.commit()
@@ -36,6 +36,5 @@ def add_alb():
 
 @app.route('/albums', methods=['GET', 'POST'])
 def alb_page():
-	album = db.session.query(models.Album).first()
-	print(album.cover_path)
-	return render_template('albums.html', album=album)
+	albums = db.session.query(models.Album).all()
+	return render_template('albums.html', albums=albums)
