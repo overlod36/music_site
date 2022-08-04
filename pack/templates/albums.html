@@ -1,0 +1,63 @@
+{% extends "index.html" %}
+{% block title %} Альбомы {% endblock %}
+
+{% block head %}
+
+	{{ super() }}
+	<style>
+		.album{
+			margin: 15px;
+		}
+		.field{
+			margin: 10px;
+		}
+		.field b{
+			margin-right: 10px;
+		}
+	</style>
+
+{% endblock %}
+
+
+{% block content %} 
+	<div class='album'>
+		<div class="field">
+			<b>Название</b>
+			{{ album.title }}
+		</div>
+
+		<div class="field">
+			<b>Группа</b>
+			{{ album.group_name }}
+		</div>
+
+		<div class="field">
+			<b>Дата релиза</b>
+			{{ album.release_date }}
+		</div>
+
+		<div class="field">
+			<b>Продюссер</b>
+			{{ album.producers_name }}
+		</div>
+
+		<div class="field">
+			<b>Продолжительность альбома</b>
+			{{ album.duration }}
+		</div>
+
+		<div class="field">
+			<b>Треклист</b>
+			<br>
+			{% for song in album.songs %}
+				{{ song }} <br>
+			{% endfor %}
+		</div>
+
+		<div class="cover">
+			<img src="static/{{ album.cover_path }}">
+		</div>
+
+	</div>
+
+{% endblock %}
