@@ -27,7 +27,7 @@
 	<div class="alb_fields">
 		<h3>Добавление альбома</h3>
 		<div class="alb_form">
-			<form method="POST">
+			<form method="POST" enctype="multipart/form-data">
 				<div class="field">
 					<b>Название альбома</b>
 					{{ form.title_field }}
@@ -53,7 +53,10 @@
 					<b>Песни альбома</b>
 					{{ form.songs_field }}
 				</div>
-				
+				<div class="field">
+					<b>Обложка альбома</b>
+					{{ form.cover_field }}
+				</div>
 				{{ form.submit }}
 			</form>
 		</div>		

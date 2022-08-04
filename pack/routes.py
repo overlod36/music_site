@@ -5,7 +5,7 @@ from flask import redirect
 from flask import request
 from flask_bootstrap import Bootstrap
 from datetime import datetime
-from pack import forms, db, models
+from pack import forms, db, models, images
 
 def get_time(st):
 	return datetime.strptime(st, '%H:%M:%S').time()
@@ -23,9 +23,10 @@ def main():
 def add_alb():
 	form = forms.Album_Form()
 	if request.method == 'POST':
-		new_album = models.Album(title=form.title_field.data, group_name=form.group_field.data, release_date=form.date_field.data, producers_name=form.producers_field.data, duration=get_time(str(form.duration_field.data)[11:]), songs=get_songs(form.songs_field.data))
+		images.save(form.cover_field.data)
+		'''new_album = models.Album(title=form.title_field.data, group_name=form.group_field.data, release_date=form.date_field.data, producers_name=form.producers_field.data, duration=get_time(str(form.duration_field.data)[11:]), songs=get_songs(form.songs_field.data))
 		db.session.add(new_album)
-		db.session.commit()
+		db.session.commit()'''
 		return redirect(url_for('main'))
 	return render_template('add_alb_page.html', form=form)
 
