@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block title %} Группы {% endblock %}
+
+{% block head %}
+
+	{{ super() }}
+	<style>
+		.groups{
+
+		}
+	</style>
+
+{% endblock %}
+
+
+{% block content %}
+	<div class='groups'>
+		{% for group in groups %}
+		<div class='group'>
+			
+			<div class="cover">
+				<img class="cover_img" src="static/groups/{{ group.cover_path }}">
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

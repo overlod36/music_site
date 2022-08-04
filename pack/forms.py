@@ -13,3 +13,7 @@ class Album_Form(FlaskForm):
 	cover_field = FileField()
 	submit = SubmitField('Добавить')
 
+class Group_Form(FlaskForm):
+	name_field = StringField('Название группы', validators=[InputRequired(), Length(min=1, max=40)])
+	cover_field = FileField()
+	submit = SubmitField('Добавить')

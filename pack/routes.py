@@ -34,7 +34,27 @@ def add_alb():
 		return redirect(url_for('main'))
 	return render_template('add_alb_page.html', form=form)
 
+@app.route('/add_group', methods=['GET', 'POST'])
+def add_group():
+	form = forms.Group_Form()
+	if request.method == 'POST':
+		file = request.files['cover_field']
+		filename = secure_filename(file.filename)
+		file.save(os.path.join('pack/static/groups', filename))
+		new_group = models.Group(name=form.name_field.data, cover_path=filename)
+		db.session.add(new_group)
+		db.session.commit()
+		return redirect(url_for('main'))
+	return render_template('add_group_page.html', form=form)
+
+
+
 @app.route('/albums', methods=['GET', 'POST'])
 def alb_page():
 	albums = db.session.query(models.Album).all()
 	return render_template('albums.html', albums=albums)
+
+@app.route('/groups', methods=['GET', 'POST'])
+def group_page():
+	groups = db.session.query(models.Group).all()
+	return render_template('groups.html', groups=groups)

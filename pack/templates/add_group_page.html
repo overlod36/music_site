@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+{% block title %} Добавление альбома {% endblock %}
+
+{% block head %}
+
+	{{ super() }}
+	<style>
+		.alb_fields{
+			margin: 15px;
+		}
+		.alb_form{
+			margin-top: 20px;
+			margin-bottom: 15px;
+		}
+		.field{
+			margin: 10px;
+		}
+		.field b{
+			margin-right: 10px;
+		}
+	</style>
+
+{% endblock %}
+
+{% block content %}
+
+	<div class="alb_fields">
+		<h3>Добавление альбома</h3>
+		<div class="alb_form">
+			<form method="POST" enctype="multipart/form-data">
+				<div class="field">
+					<b>Название группы</b>
+					{{ form.name_field }}
+				</div>
+				<div class="field">
+					<b>Фото группы</b>
+					{{ form.cover_field }}
+				</div>
+				{{ form.submit }}
+			</form>
+		</div>		
+	</div>
+
+{% endblock %}
