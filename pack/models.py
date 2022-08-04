@@ -16,7 +16,7 @@ class Album(db.Model):
 	release_date = db.Column(db.Date, nullable=False)
 	producers_name = db.Column(db.String(100))
 	duration = db.Column(db.Time, nullable=False)
-	group_name = db.Column(db.String(100), db.ForeignKey('group.name'), unique=True, nullable=False)
+	group_name = db.Column(db.String(100), db.ForeignKey('group.name'), unique=False, nullable=False)
 	songs = db.Column(ARRAY(db.String(100)), nullable=False)
 	cover_path = db.Column(db.String(100), nullable=False)
 

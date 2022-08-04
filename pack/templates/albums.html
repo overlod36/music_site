@@ -12,6 +12,8 @@
 		.album{
 			display: grid;
 			margin: 25px;
+			padding: 10px;
+			padding-right: 20px;
 			grid-template-columns: 0.87fr 1fr;
 			border: 3px solid #000;
 			background: #5f99f5;
@@ -40,12 +42,11 @@
 		<div class='album'>
 			<div class="info">
 				<div class="field">
-					<h3> {{ album.title }} </h3>
+					<h2> {{ album.title }} </h2>
 				</div>
 
 				<div class="field">
-					<b>Группа:</b>
-					{{ album.group_name }}
+					<h4> {{ album.group_name }} </h4>
 				</div>
 
 				<div class="field">
