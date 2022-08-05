@@ -11,7 +11,10 @@ while True:
 		case '1':
 			db.drop_all()
 			db.create_all()
-			shutil.rmtree('')
+			if os.path.exists('pack/static/models_images'):
+                                shutil.rmtree('pack/static/models_images')
+			if not os.path.exists('pack/static/models_images'):
+				os.mkdir('pack/static/models_images')
 			continue
 		case '2':
 			print('Заполнение базы данных!')
