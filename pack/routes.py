@@ -50,11 +50,21 @@ def add_group():
 
 
 @app.route('/albums', methods=['GET', 'POST'])
-def alb_page():
+def albums_page():
 	albums = db.session.query(models.Album).all()
 	return render_template('albums.html', albums=albums)
 
 @app.route('/groups', methods=['GET', 'POST'])
-def group_page():
+def groups_page():
 	groups = db.session.query(models.Group).all()
 	return render_template('groups.html', groups=groups)
+
+@app.route('/album/<name>')
+def album_page(name):
+	album = db.session.query(models.Album).filter_by(title=name).first()
+	return render_template('el_album.html', album=album)
+
+@app.route('/group/<name>')
+def group_page(name):
+	group = db.session.query(models.Group).filter_by(name=name).first()
+	return render_template('el_group.html', group=group)
