@@ -8,10 +8,18 @@
 		.groups{
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
+			margin: 25px;
 		}
 		img{
-			width: 400px;
-			height: auto;
+			margin-left: 15px;
+			width: 450px;
+			height: 290px;
+		}
+		.cover{
+			margin: 5px;
+		}
+		.gr_name{
+			text-align: center;
 		}
 	</style>
 
@@ -25,7 +33,7 @@
 			<div class="cover">
 				<img class="cover_img" src="static/groups/{{ group.cover_path }}">
 			</div>
-			{{ group.name }}
+			<h4 class="gr_name"> {{ group.name }} </h4>
 		</div>
 		{% endfor %}
 	</div>
