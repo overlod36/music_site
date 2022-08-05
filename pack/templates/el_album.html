@@ -1,8 +1,65 @@
 {% extends "index.html" %}
 {% block title %} {{ album.title }} {% endblock %}
 
+{% block head %}
+
+	{{ super() }}
+	<style>
+		.album{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			margin: 25px;
+		}
+		.cover_img{
+			height: 360px;
+			weight: auto;
+		}
+		.cover{
+			margin-top: 25px;
+		}
+	</style>
+
+{% endblock %}
+
 {% block content %}
 
-	<h3>Hey!</h3>
+	<div class='album'>
+		<div class="info">
+			<div class="field">
+				<h2> {{ album.title }} </h2>
+			</div>
+
+			<div class="field">
+				<h4> {{ album.group_name }} </h4>
+			</div>
+
+			<div class="field">
+				<b>Дата релиза:</b>
+				{{ album.release_date }}
+			</div>
+
+			<div class="field">
+				<b>Продюссер:</b>
+				{{ album.producers_name }}
+			</div>
+
+			<div class="field">
+				<b>Продолжительность альбома:</b>
+				{{ album.duration }}
+			</div>
+
+			<div class="field">
+				<b>Треклист</b>
+				<br>
+				{% for song in album.songs %}
+					{{loop.index}}. {{ song }} <br>
+				{% endfor %}
+			</div>
+		</div>
+		
+		<div class="cover">
+			<img class="cover_img" src="/static/albums/{{ album.cover_path }}">
+		</div>
+	</div>
 
 {% endblock %}
