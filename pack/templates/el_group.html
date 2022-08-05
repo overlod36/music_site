@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% block title %} {{ group.title }} {% endblock %}
+
+{% block head %}
+
+	{{ super() }}
+	<style>
+		.groups{
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			margin: 25px;
+		}
+		img{
+			margin-left: 15px;
+			width: 450px;
+			height: 290px;
+		}
+		.cover{
+			margin: 5px;
+		}
+		.gr_name{
+			text-align: center;
+		}
+	</style>
+
+{% endblock %}
+
+{% block content %}
+
+	<div class='group'>
+		<div class="cover">
+			<img class="cover_img" src="/static/groups/{{ group.cover_path }}">
+		</div>
+		<h4 class="gr_name"> {{ group.name }} </h4>
+	</div>
+
+{% endblock %}

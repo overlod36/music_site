@@ -31,7 +31,7 @@
 		{% for group in groups %}
 		<div class='group'>
 			<div class="cover">
-				<img class="cover_img" src="static/groups/{{ group.cover_path }}">
+				<a href="/group/{{ group.name }}"><img class="cover_img" src="/static/groups/{{ group.cover_path }}"></a>
 			</div>
 			<h4 class="gr_name"> {{ group.name }} </h4>
 		</div>
