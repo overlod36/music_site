@@ -11,9 +11,15 @@ class Album_Form(FlaskForm):
 	duration_field = DateTimeField('Длительность альбома', validators=[InputRequired()], format='%H:%M:%S')
 	songs_field = StringField('Песни альбома', validators=[InputRequired(), Length(min=10, max=450)])
 	cover_field = FileField()
+	genres_field = StringField('Жанры', validators=[InputRequired()])
 	submit = SubmitField('Добавить')
 
 class Group_Form(FlaskForm):
 	name_field = StringField('Название группы', validators=[InputRequired(), Length(min=1, max=40)])
 	cover_field = FileField()
+	add_cover_field = FileField()
+	logo_field = FileField()
+	current_members_field = StringField('Текущие участники', validators=[InputRequired()])
+	past_members_field = StringField('Прошлые участники', validators=[InputRequired()])
+	active_years = StringField('Годы активности', validators=[InputRequired()])
 	submit = SubmitField('Добавить')

@@ -25,7 +25,7 @@
 {% block content %}
 
 	<div class="alb_fields">
-		<h3>Добавление альбома</h3>
+		<h3>Добавление группы</h3>
 		<div class="alb_form">
 			<form method="POST" enctype="multipart/form-data">
 				<div class="field">
@@ -36,6 +36,27 @@
 					<b>Фото группы</b>
 					{{ form.cover_field }}
 				</div>
+				<div class="field">
+					<b>Дополнительное фото группы</b>
+					{{ form.add_cover_field }}
+				</div>
+				<div class="field">
+					<b>Логотип группы</b>
+					{{ form.logo_field }}
+				</div>
+				<div class="field">
+					<b>Текущий состав группы</b>
+					{{ form.current_members_field }}
+				</div>
+				<div class="field">
+					<b>Прошлые составы группы</b>
+					{{ form.past_members_field }}
+				</div>
+				<div class="field">
+					<b>Годы активности группы</b>
+					{{ form.active_years }}
+				</div>
+
 				{{ form.submit }}
 			</form>
 		</div>		
