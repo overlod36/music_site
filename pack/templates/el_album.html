@@ -55,6 +55,14 @@
 					{{loop.index}}. {{ song }} <br>
 				{% endfor %}
 			</div>
+
+			<div class="field">
+				<b>Жанры</b>
+				<br>
+				{% for genre in album.genres %}
+					{{ genre }} <br>
+				{% endfor %}
+			</div>
 		</div>
 		
 		<div class="cover">

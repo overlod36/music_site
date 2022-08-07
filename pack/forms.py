@@ -14,6 +14,7 @@ class Album_Form(FlaskForm):
 	genres_field = StringField('Жанры', validators=[InputRequired()])
 	submit = SubmitField('Добавить')
 
+
 class Group_Form(FlaskForm):
 	name_field = StringField('Название группы', validators=[InputRequired(), Length(min=1, max=40)])
 	cover_field = FileField()

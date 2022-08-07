@@ -7,15 +7,12 @@
 	<style>
 		.albums{
 			display: grid;
-			grid-template-columns: 0.5fr 0.5fr;
+			grid-template-columns: 0.5fr 0.5fr 0.5fr;
 		}
 		.album{
-			display: grid;
 			margin: 25px;
 			padding: 10px;
-			padding-right: 20px;
-			grid-template-columns: 0.87fr 1fr;
-			border: 3px solid #000;
+			padding-left: 50px;
 			background: #5f99f5;
 		}
 		.field{
@@ -31,6 +28,10 @@
 		.cover{
 			margin-top: 25px;
 		}
+		.info{
+			text-align: center;
+			padding-right: 35px;
+		}
 	</style>
 
 {% endblock %}
@@ -40,6 +41,9 @@
 	<div class='albums'>
 		{% for album in albums %}
 		<div class='album'>
+			<div class="cover">
+				<a href="/album/{{ album.title }}"><img class="cover_img" src="/static/models_images/{{ album.group_name }}/{{ album.cover_path }}"></a>
+			</div>
 			<div class="info">
 				<div class="field">
 					<h2> {{ album.title }} </h2>
@@ -48,33 +52,6 @@
 				<div class="field">
 					<h4> {{ album.group_name }} </h4>
 				</div>
-
-				<div class="field">
-					<b>Дата релиза:</b>
-					{{ album.release_date }}
-				</div>
-
-				<div class="field">
-					<b>Продюссер:</b>
-					{{ album.producers_name }}
-				</div>
-
-				<div class="field">
-					<b>Продолжительность альбома:</b>
-					{{ album.duration }}
-				</div>
-
-				<div class="field">
-					<b>Треклист</b>
-					<br>
-					{% for song in album.songs %}
-						{{loop.index}}. {{ song }} <br>
-					{% endfor %}
-				</div>
-			</div>
-			
-			<div class="cover">
-				<a href="/album/{{ album.title }}"><img class="cover_img" src="/static/models_images/{{ album.group_name }}/{{ album.cover_path }}"></a>
 			</div>
 		</div>
 		{% endfor %}
